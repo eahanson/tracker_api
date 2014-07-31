@@ -62,6 +62,15 @@ client.project(project_id, fields: ':default,epics')                      # Eage
 client.project(project_id).stories(fields: ':default,tasks')              # Eagerly get stories with tasks
 ```
 
+## Logging
+
+Change the logging level by passing in your own logger (it defaults to `DEBUG`).
+
+```ruby
+logger = Logger.new(STDOUT).tap { |logger| logger.level = Logger::ERROR }
+client = TrackerApi::Client.new(token: 'my-api-token', logger: logger)
+```
+
 ## TODO
 
 - Add missing resources and endpoints
